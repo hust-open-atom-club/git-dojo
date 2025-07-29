@@ -1,0 +1,26 @@
+#!/opt/pwn.college/bash
+
+sudo -u hacker bash <<'EOF'
+# 初始化仓库
+mkdir -p /tmp/repo
+cd /tmp/repo
+git init
+
+# Git 配置
+git config user.name "pwnuser"
+git config user.email "pwn@hust.edu.cn"
+
+# 添加初始文件并提交三次
+echo "Line 1" > log.txt
+git add log.txt
+git commit -m "Initial commit"
+
+echo "Line 2" >> log.txt
+git add log.txt
+git commit -m "Add line 2"
+
+echo "Line 3" >> log.txt
+git add log.txt
+git commit -m "Add line 3"
+
+EOF
