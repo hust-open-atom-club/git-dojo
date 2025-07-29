@@ -1,6 +1,6 @@
 我们已经在 `/tmp/repo` 目录下初始化了一个 Git 仓库。
 
-本关任务较为基础，目标是使用 `git stash` 暂存当前修改，并通过 `git stash pop` 恢复。
+本关目标是使用 `git stash` 暂存当前修改，并通过 `git stash pop` 恢复。
 
 **背景：**
 
