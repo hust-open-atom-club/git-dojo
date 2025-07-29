@@ -9,6 +9,10 @@ challenges:
     name: 从暂存区恢复文件
     level: 2
 
+  - id: "commit-amend"
+    name: 修改最后一次提交
+    level: 2
+
   - id: "history"
     name: 查找提交历史并回退
     level: 2
