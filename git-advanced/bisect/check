@@ -6,11 +6,11 @@ found=$(git rev-parse HEAD)
 expected=$(cat /challenge/bug_commit)
 
 if [[ "$found" == "$expected" ]]; then
-  echo "✅ 成功！你找到了引入 bug 的提交。"
+  echo "[+] 成功！你找到了引入 bug 的提交。"
   echo -n "你的 flag 是："
   cat /flag
 else
-  echo "❌ 当前提交不是 bug 首次出现的提交。"
+  echo "[-] 当前提交不是 bug 首次出现的提交。"
   echo "提示：使用 git bisect + 脚本 来定位"
   exit 1
 fi

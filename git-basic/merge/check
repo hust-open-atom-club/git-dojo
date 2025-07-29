@@ -2,13 +2,13 @@
 set -e
 repo=$PWD    
 # 1) story.txt 必须同时包含两行关键短语
-grep -q "A quick PATCH on master"    story.txt || { echo "❌ 缺少 PATCH 行"; exit 1; }
-grep -q "An exciting FEATURE begins" story.txt || { echo "❌ 缺少 FEATURE 行"; exit 1; }
+grep -q "A quick PATCH on master"    story.txt || { echo "[-] 缺少 PATCH 行"; exit 1; }
+grep -q "An exciting FEATURE begins" story.txt || { echo "[-] 缺少 FEATURE 行"; exit 1; }
 
 # 2) HEAD 必须是 merge commit（两个父）
 parents=$(git rev-list --parents -n 1 HEAD | wc -w)
 if [[ "$parents" -lt 3 ]]; then
-  echo "❌ 当前 HEAD 不是 merge commit，请用 git merge 或解决冲突后再提交"
+  echo "[-] 当前 HEAD 不是 merge commit，请用 git merge 或解决冲突后再提交"
   exit 1
 fi
 
@@ -17,11 +17,11 @@ master_base=$(cat /challenge/master_base)
 feature_tip=$(cat /challenge/feature_head)
 git merge-base --is-ancestor "$master_base" HEAD^1 2>/dev/null && \
 git merge-base --is-ancestor "$feature_tip" HEAD^2 2>/dev/null || {
-  echo "❌ merge 父提交不符合预期，确认你是把 feature 合并进 master"
+  echo "[-] merge 父提交不符合预期，确认你是把 feature 合并进 master"
   exit 1
 }
 
-echo "✅ 恭喜！成功解决冲突并完成分支合并。"
+echo "[+] 恭喜！成功解决冲突并完成分支合并。"
 echo -n "你的 flag 是："
 cat /flag
 

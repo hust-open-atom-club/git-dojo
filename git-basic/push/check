@@ -6,37 +6,37 @@ remote_url=$(cat /challenge/remote_path)
 
 # 1) 必须在 repo 根目录运行
 if [[ ! -d .git ]]; then
-  echo "❌ 请在 repo 目录下运行 /challenge/check"
+  echo "[-] 请在 repo 目录下运行 /challenge/check"
   exit 1
 fi
 
 # 2) 必须存在名为 origin 的远程
 if ! git remote | grep -qx origin; then
-  echo "❌ 未检测到远程 origin"
+  echo "[-] 未检测到远程 origin"
   exit 1
 fi
 
 # 3) origin 必须指向预设裸仓库路径
 if [[ $(git remote get-url origin) != "$remote_url" ]]; then
-  echo "❌ origin URL 不正确"
+  echo "[-] origin URL 不正确"
   exit 1
 fi
 
 # 4) 远程 master 分支的 commit 必须等于预期
 remote_commit=$(git ls-remote origin refs/heads/master| cut -f1)
 if [[ -z "$remote_commit" || "$remote_commit" != "$expected" ]]; then
-  echo "❌ 远程 master 分支仍未包含最新提交"
+  echo "[-] 远程 master 分支仍未包含最新提交"
   exit 1
 fi
 
 # 5) 本地 master 必须跟踪 origin/master
 if ! git rev-parse --abbrev-ref --symbolic-full-name @{u} \
        | grep -qx "origin/master"; then
-  echo "❌ 本地 master 尚未设置上游 (tracking) 分支"
+  echo "[-] 本地 master 尚未设置上游 (tracking) 分支"
   exit 1
 fi
 
-echo "✅ 推送成功并建立跟踪！"
+echo "[+] 推送成功并建立跟踪！"
 echo -n "你的 flag 是："
 cat /flag
 

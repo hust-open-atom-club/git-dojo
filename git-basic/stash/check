@@ -4,27 +4,27 @@ repo=$PWD
 # 1. 必须在 master 分支
 branch=$(git rev-parse --abbrev-ref HEAD)
 if [[ "$branch" != "master" ]]; then
-  echo "❌ 你不在 master 分支"
+  echo "[-] 你不在 master 分支"
   exit 1
 fi
 
 # 2. 检查 hotfix 分支是否新增了修复提交
 if ! git log hotfix --pretty=%s | grep -q "fix"; then
-  echo "❌ 你没有在 hotfix 分支提交修复（提交信息应包含 'fix'）"
+  echo "[-] 你没有在 hotfix 分支提交修复（提交信息应包含 'fix'）"
   exit 1
 fi
 
 # 3. master 是否恢复了 app.py 修改
 if ! grep -q "working on feature" app.py; then
-  echo "❌ master 未恢复原始修改"
+  echo "[-] master 未恢复原始修改"
   exit 1
 fi
 
 # 4. notes.txt 是否恢复
 if [[ ! -f notes.txt ]]; then
-  echo "❌ notes.txt 未恢复，请使用 git stash -u 保存未跟踪文件"
+  echo "[-] notes.txt 未恢复，请使用 git stash -u 保存未跟踪文件"
   exit 1
 fi
 
-echo "✅ 完成所有任务,你的 flag 是："
+echo "[+] 完成所有任务,你的 flag 是："
 cat /flag

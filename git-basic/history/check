@@ -7,14 +7,14 @@ current=$(git rev-parse HEAD)
 
 if [[ "$current" == "$expected" ]]; then
   if grep -q "The flag is safe" answer.txt; then
-    echo "✅ 恭喜！你成功回退到了正确版本。"
+    echo "[+] 恭喜！你成功回退到了正确版本。"
     echo -n "你的 flag 是："
     cat /flag
     exit 0
   fi
 fi
 
-echo "❌ 还没有回到正确提交！"
+echo "[-] 还没有回到正确提交！"
 echo "(提示：git log 找到 commit，git checkout <hash>)"
 exit 1
 
