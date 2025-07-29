@@ -1,18 +1,6 @@
 name: Git 进阶操作
 
 challenges:
-  - id: "rebase"
-    name: 整理提交历史
-    level: 2
-
-  - id: "rebase-merge"
-    name: 线性方式合并
-    level: 2
-
-  - id: "reflog"
-    name: 历史记录管理进阶
-    level: 2
-
   - id: "filter-branch"
     name: 清理敏感文件
     level: 2

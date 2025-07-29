@@ -1,0 +1,34 @@
+name: Git 专业操作
+
+challenges:
+  - id: "history"
+    name: 查找提交历史并回退
+    level: 2
+
+  - id: "merge"
+    name: 分支冲突解决与合并
+    level: 2
+
+  - id: "push"
+    name: 模拟推送远程仓库
+    level: 2
+    
+  - id: "stash"
+    name: 保存临时修改
+    level: 2
+    
+  - id: "log"
+    name: 筛选提交日志
+    level: 3
+
+  - id: "rebase"
+    name: 整理提交历史
+    level: 2
+
+  - id: "rebase-merge"
+    name: 线性方式合并
+    level: 2
+
+  - id: "reflog"
+    name: 历史记录管理进阶
+    level: 2

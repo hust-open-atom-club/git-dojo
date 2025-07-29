@@ -13,5 +13,8 @@ modules:
   - id: "git-basic"
     icon: 0076_Golem
 
-  - id: "git-advanced"
+  - id: "git-expert"
     icon: 0077_Ponyta
+
+  - id: "git-advanced"
+    icon: 0078_Rapidash

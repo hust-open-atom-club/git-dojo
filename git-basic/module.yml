@@ -12,23 +12,3 @@ challenges:
   - id: "commit-amend"
     name: 修改最后一次提交
     level: 2
-
-  - id: "history"
-    name: 查找提交历史并回退
-    level: 2
-
-  - id: "merge"
-    name: 分支冲突解决与合并
-    level: 2
-
-  - id: "push"
-    name: 模拟推送远程仓库
-    level: 2
-    
-  - id: "stash"
-    name: 保存临时修改
-    level: 2
-    
-  - id: "log"
-    name: 筛选提交日志
-    level: 3
