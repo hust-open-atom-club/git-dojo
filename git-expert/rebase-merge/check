@@ -1,13 +1,14 @@
 #!/opt/pwn.college/bash
 
-cd /tmp/repo
-
-# 必须处于 master 分支
-current_branch=$(sudo -u hacker git symbolic-ref --short HEAD)
-if [[ "$current_branch" != "master" ]]; then
-    echo "[-] 你不在 master 分支上，请将结果合并回 master 分支"
+# 检查 /tmp/repo 是否存在且为目录
+if [ ! -d /tmp/repo ]; then
+    echo "[-] 不要删除 /tmp/repo 文件夹！"
     exit 1
 fi
+
+cd /tmp/repo
+
+sudo -u hacker git checkout master
 
 # 检查是否包含 feature 分支的提交信息（假设通过提交信息匹配）
 if ! sudo -u hacker git log --oneline | grep -q "Add line 3 on feature"; then

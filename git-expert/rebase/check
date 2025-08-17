@@ -8,6 +8,8 @@ if [ ! -d /tmp/repo ]; then
     exit 1
 fi
 
+cd /tmp/repo
+
 commit_count=$(sudo -u hacker git rev-list --count HEAD)
 
 if [ "$commit_count" -eq 2 ]; then

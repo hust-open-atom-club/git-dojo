@@ -8,6 +8,8 @@ if [ ! -d /tmp/repo ]; then
     exit 1
 fi
 
+cd /tmp/repo
+
 # 检查 .git 目录
 if [ ! -d .git ]; then
   echo "[-] 未在 /tmp/repo 中初始化 Git 仓库!"
